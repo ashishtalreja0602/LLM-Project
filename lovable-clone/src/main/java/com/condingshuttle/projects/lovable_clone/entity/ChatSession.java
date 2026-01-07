@@ -8,10 +8,8 @@ public class ChatSession {
     Project project;
     User user;
     String title;
-
     Instant updatedAt;
     Instant createdAt;
-
     Instant deletedAt;
 
 }
