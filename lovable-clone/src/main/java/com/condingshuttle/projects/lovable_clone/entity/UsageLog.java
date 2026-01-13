@@ -1,8 +1,6 @@
 package com.condingshuttle.projects.lovable_clone.entity;
 
 public class UsageLog {
-
-
     Long id;
     User user;
     Project project;
