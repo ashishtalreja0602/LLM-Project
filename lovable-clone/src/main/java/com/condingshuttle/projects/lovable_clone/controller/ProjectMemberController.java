@@ -3,6 +3,7 @@ package com.condingshuttle.projects.lovable_clone.controller;
 
 import com.condingshuttle.projects.lovable_clone.Dto.member.InviteMemberRequest;
 import com.condingshuttle.projects.lovable_clone.Dto.member.MemberResponse;
+import com.condingshuttle.projects.lovable_clone.Dto.member.UpdateMemberRoleRequest;
 import com.condingshuttle.projects.lovable_clone.entity.ProjectMember;
 import com.condingshuttle.projects.lovable_clone.entity.ProjectMemberId;
 import com.condingshuttle.projects.lovable_clone.service.ProjectMemberIdService;
@@ -24,7 +25,7 @@ public class ProjectMemberController {
 
 
     @GetMapping
-    public ResponseEntity<List<ProjectMember>> getProjectMembers(@PathVariable Long projectId){
+    public ResponseEntity<List<MemberResponse>> getProjectMembers(@PathVariable Long projectId){
             Long userId = 1L;
             return ResponseEntity.ok(projectMemberService.getProjectMembers(projectId,userId));
 
@@ -40,7 +41,7 @@ public class ProjectMemberController {
     public ResponseEntity<MemberResponse> updateMemberRole(
             @PathVariable Long projectId,
             @PathVariable Long memberId,
-            @RequestBody InviteMemberRequest request
+            @RequestBody UpdateMemberRoleRequest request
     ){
             Long userId = 1L;
             return ResponseEntity.ok(projectMemberService.updatedMemberRole(projectId,memberId,request,userId));
@@ -48,7 +49,7 @@ public class ProjectMemberController {
 
 
     @DeleteMapping("/{memberId}")
-    public ResponseEntity<MemberResponse> deleteProjectMember(
+    public ResponseEntity<MemberResponse> deleteMember(
             @PathVariable Long projectId,
             @PathVariable Long memberId,
             @RequestBody InviteMemberRequest request
